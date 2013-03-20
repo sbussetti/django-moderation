@@ -35,7 +35,6 @@ def autosetup():
     return setup(
 		name='django-moderation',
 
-        namespace_packages = ['iws'],
         packages        = find_packages('src'),
 
         entry_points    = {
