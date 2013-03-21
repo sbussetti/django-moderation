@@ -162,7 +162,7 @@ class ModeratedObject(models.Model):
 
             self.changed_object.save()
 
-		self.save()
+        self.save()
 
         if status == MODERATION_STATUS_REJECTED and\
            self.moderator.visible_until_rejected:
