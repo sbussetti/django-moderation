@@ -1,6 +1,9 @@
 from setuptools import setup, find_packages
 import os
 
+import distribute_setup
+distribute_setup.use_setuptools()
+
 # disables creation of .DS_Store files inside tarballs on Mac OS X
 os.environ['COPY_EXTENDED_ATTRIBUTES_DISABLE'] = 'true'
 os.environ['COPYFILE_DISABLE'] = 'true'
