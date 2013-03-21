@@ -8,8 +8,8 @@ distribute_setup.use_setuptools()
 os.environ['COPY_EXTENDED_ATTRIBUTES_DISABLE'] = 'true'
 os.environ['COPYFILE_DISABLE'] = 'true'
 
-def relative_path(path, srcdir='src'):
-    return os.path.join(os.path.dirname(__file__), srcdir, path)
+def relative_path(path):
+    return os.path.join(os.path.dirname(__file__), path)
 
 def get_tagged_version():
     import os.path, subprocess
