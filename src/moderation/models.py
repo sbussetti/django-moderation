@@ -160,8 +160,14 @@ class ModeratedObject(models.Model):
                 setattr(self.changed_object, self.moderator.visibility_column,
                         True)
 
+			## so this is fun.  Changed object MUST be saved after we save the
+			## main object.  Otherwise we get in a loop of toggling between
+			## current and upcoming changes.  But the main object MUST also
+			## be saved after the changed object, because otherwise
+			## changed_object blows out any in-memory modifications
+			## to the current model instance.   
+            self.save()
             self.changed_object.save()
-
         self.save()
 
         if status == MODERATION_STATUS_REJECTED and\
