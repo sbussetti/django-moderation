@@ -45,10 +45,14 @@ class ModerationAdmin(admin.ModelAdmin):
         return super(ModerationAdmin, self).get_form(request, obj)
 
     def change_view(self, request, object_id, extra_context=None):
-        if self.admin_integration_enabled:
+        ## don't message if user is saving and continue to edit -- the redirect
+        ## back to change_view will message once, as desired.  Otherwise if someone
+        ## "Saves and Continues Editing" they get confusing doublemessages.
+        if self.admin_integration_enabled and not request.POST.get('_continue', None):
             self.send_message(request, object_id)
 
-        return super(ModerationAdmin, self).change_view(request, object_id)
+        return super(ModerationAdmin, self).change_view(request, object_id,
+                                                        extra_context=extra_context)
 
     def send_message(self, request, object_id):
         try:

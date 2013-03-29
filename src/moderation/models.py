@@ -161,13 +161,13 @@ class ModeratedObject(models.Model):
                         True)
             
             self.save()
-            self.changed_object.save()
+            self.changed_object.save_base(raw=True)
 
         else:
             self.save()
         if status == MODERATION_STATUS_REJECTED and\
            self.moderator.visible_until_rejected:
-            self.changed_object.save()
+            self.changed_object.save_base(raw=True)
 
         if self.changed_by:
             self.moderator.inform_user(self.content_object, self.changed_by)
