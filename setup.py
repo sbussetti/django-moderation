@@ -36,7 +36,7 @@ def get_tagged_version():
 def autosetup():
     from setuptools import setup, find_packages
     return setup(
-		name='django-moderation',
+        name='django-moderation',
 
         packages        = find_packages('src'),
 
@@ -46,31 +46,31 @@ def autosetup():
             ],
         },
 
-		version=get_tagged_version(),
-		description="Generic Django objects moderation application",
-		long_description=open("README.rst").read() + "\n" +
-					   open(os.path.join("docs", "HISTORY.txt")).read(),
+        version=get_tagged_version(),
+        description="Generic Django objects moderation application",
+        long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read(),
 
-		classifiers=[
-		'Development Status :: 4 - Beta',
-		'Environment :: Web Environment',
-		'Intended Audience :: Developers',
-		'License :: OSI Approved :: BSD License',
-		'Operating System :: OS Independent',
-		'Programming Language :: Python',
-		'Framework :: Django',
-		],
-		keywords='django moderation models',
-		author='Dominik Szopa',
-		author_email='dszopa@gmail.com',
-		url='http://github.com/dominno/django-moderation',
-		license='BSD',
-		package_dir = {'': 'src'},
-		include_package_data=True,
-		install_requires=[
-		  'setuptools',
-		],
-		zip_safe=False,
+        classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Framework :: Django',
+        ],
+        keywords='django moderation models',
+        author='Dominik Szopa',
+        author_email='dszopa@gmail.com',
+        url='http://github.com/dominno/django-moderation',
+        license='BSD',
+        package_dir = {'': 'src'},
+        include_package_data=True,
+        install_requires=[
+          'setuptools',
+        ],
+        zip_safe=False,
     )
 
 if(__name__ == '__main__'):
